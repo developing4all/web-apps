@@ -6,6 +6,7 @@
 
 ARG PRODUCT_VERSION
 ARG BUILD_ROOT
+ARG THEME=euro-office
 
 #### BASE ####
 FROM ubuntu:24.04 AS web-base
@@ -20,6 +21,7 @@ FROM ubuntu:24.04 AS web-base
 FROM web-base AS web-apps
     ARG PRODUCT_VERSION
     ARG BUILD_ROOT=/package
+    ARG THEME=euro-office
 
     COPY web-apps/build/package*.json /app/build/
     COPY web-apps/build/sprites/package*.json /app/build/sprites/
@@ -40,4 +42,4 @@ FROM web-base AS web-apps
 
     ARG TARGETARCH
     RUN cd app/build && \
-        THEME=euro-office grunt $(if [ "$TARGETARCH" = "arm64" ]; then echo "--skip-imagemin"; fi)
+        THEME=${THEME} grunt $(if [ "$TARGETARCH" = "arm64" ]; then echo "--skip-imagemin"; fi)
