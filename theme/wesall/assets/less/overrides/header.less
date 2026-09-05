@@ -1,111 +1,37 @@
-// --------------------------------------------------------------------------
-// Header Logo — per-editor-type icons
-// Upstream: apps/common/main/resources/less/header.less:176-189
-// Uses data-editor-type attribute on <body> (set in each editor's index.html)
-// to select the correct icon at runtime via CSS attribute selectors.
-// --------------------------------------------------------------------------
+// ==========================================================================
+// WeSAll Office desktop editor header
+// ==========================================================================
 
-// Shared sizing override (icons are 24×24 instead of 86×20 text logos)
+#header-logo,
 .extra #header-logo {
-  padding: 6px 6px 6px 12px;
-  i {
-    width: 20px;
-    height: 20px;
-    background-size: contain;
-  }
+  width: 140px !important;
+  min-width: 140px !important;
+  padding: 2px 8px 2px 10px !important;
 }
 
-// Document editor
-body[data-editor-type="document"] {
-  .extra #header-logo i,
-  .extra #header-logo.logo-light i {
-    background-image: ~"url('@{common-image-const-path}/header/icon-document.svg')";
-  }
+#header-logo i,
+.extra #header-logo i,
+#header-logo.logo-light i,
+.extra #header-logo.logo-light i {
+  display: block !important;
+  width: 122px !important;
+  height: 26px !important;
 
-  &.theme-light,
-  &.theme-classic-light,
-  &.theme-dark,
-  &.theme-contrast-dark,
-  &.theme-night {
-    .extra #header-logo i,
-    .extra #header-logo.logo-light i {
-      background-image: ~"url('@{common-image-const-path}/header/icon-document-white.svg')";
-    }
-  }
+  background-image: ~"url('@{common-image-const-path}/header/eo_logo_light.svg')" !important;
+  background-repeat: no-repeat !important;
+  background-position: left center !important;
+  background-size: contain !important;
+  background-color: transparent !important;
 }
 
-// Spreadsheet editor
-body[data-editor-type="spreadsheet"] {
+// Dark themes use the white-text WeSAll wordmark
+body.theme-dark,
+body.theme-contrast-dark,
+body.theme-night {
+  #header-logo i,
   .extra #header-logo i,
+  #header-logo.logo-light i,
   .extra #header-logo.logo-light i {
-    background-image: ~"url('@{common-image-const-path}/header/icon-spreadsheet.svg')";
-  }
-
-  &.theme-light,
-  &.theme-classic-light,
-  &.theme-dark,
-  &.theme-contrast-dark,
-  &.theme-night {
-    .extra #header-logo i,
-    .extra #header-logo.logo-light i {
-      background-image: ~"url('@{common-image-const-path}/header/icon-spreadsheet-white.svg')";
-    }
-  }
-}
-
-// Presentation editor
-body[data-editor-type="presentation"] {
-  .extra #header-logo i,
-  .extra #header-logo.logo-light i {
-    background-image: ~"url('@{common-image-const-path}/header/icon-presentation.svg')";
-  }
-
-  &.theme-light,
-  &.theme-classic-light,
-  &.theme-dark,
-  &.theme-contrast-dark,
-  &.theme-night {
-    .extra #header-logo i,
-    .extra #header-logo.logo-light i {
-      background-image: ~"url('@{common-image-const-path}/header/icon-presentation-white.svg')";
-    }
-  }
-}
-
-// PDF editor
-body[data-editor-type="pdf"] {
-  .extra #header-logo i,
-  .extra #header-logo.logo-light i {
-    background-image: ~"url('@{common-image-const-path}/header/icon-pdf.svg')";
-  }
-
-  &.theme-light,
-  &.theme-classic-light,
-  &.theme-dark,
-  &.theme-contrast-dark,
-  &.theme-night {
-    .extra #header-logo i,
-    .extra #header-logo.logo-light i {
-      background-image: ~"url('@{common-image-const-path}/header/icon-pdf-white.svg')";
-    }
-  }
-}
-
-// Visio (drawing) editor
-body[data-editor-type="drawing"] {
-  .extra #header-logo i,
-  .extra #header-logo.logo-light i {
-    background-image: ~"url('@{common-image-const-path}/header/icon-drawing.svg')";
-  }
-
-  &.theme-light,
-  &.theme-classic-light,
-  &.theme-dark,
-  &.theme-contrast-dark,
-  &.theme-night {
-    .extra #header-logo i,
-    .extra #header-logo.logo-light i {
-      background-image: ~"url('@{common-image-const-path}/header/icon-drawing-white.svg')";
-    }
+    background-image: ~"url('@{common-image-const-path}/header/eo_logo_dark.svg')" !important;
   }
 }
